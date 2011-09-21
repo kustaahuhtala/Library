@@ -1,21 +1,34 @@
-<html t:type="layout" title="library Index" t:sidebarTitle="Create Item"
+<html t:type="layout" title="Library App" t:sidebarTitle="Create Item"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+	<t:zone t:id="itemZone">
+		<t:grid source="items" exclude="id" add="edit,remove,borrow"
+			row="item">
+			<p:borrowed>
+				${item.borrowed}
+			</p:borrowed>
+			<p:editCell>
+				<t:pagelink page="edit/EditIndex" context="item.id">Edit
+				</t:pagelink>
+			</p:editCell>
+			<p:removeCell>
+				<a t:type="eventlink" t:event="remove" t:context="item.id" href="#">Remove</a>
+			</p:removeCell>
+			<p:borrowCell>
+				<t:if test="item.borrowed">
+					<a t:type="eventlink" t:event="borrow" zone="itemZone" t:context="item.id" href="#">Return!</a>
+					<p:else>
+						<a t:type="eventlink" t:event="borrow" zone="itemZone" t:context="item.id" href="#">Borrow
+							this book!</a>
+					</p:else>
+				</t:if>
+			</p:borrowCell>
 
-	<t:grid source="items" exclude="id" add="edit,remove" row="item">
-		<p:borrowed>
-			${item.borrowed}
-		</p:borrowed>
-		<p:editCell>
-			<t:pagelink page="CreateItem" context="item.id">Edit</t:pagelink> 
-		</p:editCell>
-		<p:removeCell>
-			<a t:type="eventlink" t:event="remove" t:context="item.id" href="#">Remove</a>
-		</p:removeCell>
-	</t:grid>
-
+		</t:grid>
+	</t:zone>
 	<p:sidebar>
 		<p>
-			<t:pagelink page="CreateItem" context="0">Create item</t:pagelink>	
+			<t:pagelink page="edit/EditIndex" context="0">Create item
+			</t:pagelink>
 		</p>
 	</p:sidebar>
 

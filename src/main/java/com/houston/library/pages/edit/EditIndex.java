@@ -1,4 +1,4 @@
-package com.houston.library.pages;
+package com.houston.library.pages.edit;
 
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Persist;
@@ -8,14 +8,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.houston.library.model.Item;
+import com.houston.library.pages.Index;
 import com.houston.library.repository.ItemRepository;
 
 /**
  * Start page of application library.
  */
-public class CreateItem {
+public class EditIndex {
 
-	private static final Logger logger = LoggerFactory.getLogger(CreateItem.class);
+	private static final Logger logger = LoggerFactory.getLogger(EditIndex.class);
 
 	@Persist
 	private Item item;
