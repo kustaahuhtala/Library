@@ -5,7 +5,7 @@
 
 
 	<h2>Create new item</h2>
-	<t:beaneditform object="item" t:id="createItem"/>
+	<t:beaneditform object="item" exclude="id,borrowed" t:id="createItem"/>
 
 
 </html>

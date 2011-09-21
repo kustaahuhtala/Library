@@ -1,18 +1,21 @@
 <html t:type="layout" title="library Index" t:sidebarTitle="Create Item"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
 
-	<t:grid source="items" exclude="id" row="item">
+	<t:grid source="items" exclude="id" add="edit,remove" row="item">
 		<p:borrowed>
 			${item.borrowed}
 		</p:borrowed>
+		<p:editCell>
+			<t:pagelink page="CreateItem" context="item.id">Edit</t:pagelink> 
+		</p:editCell>
+		<p:removeCell>
+			<a t:type="eventlink" t:event="remove" t:context="item.id" href="#">Remove</a>
+		</p:removeCell>
 	</t:grid>
 
 	<p:sidebar>
-
 		<p>
-			[
-			<t:pagelink page="CreateItem">Create item</t:pagelink>
-			]
+			<t:pagelink page="CreateItem" context="0">Create item</t:pagelink>	
 		</p>
 	</p:sidebar>
 

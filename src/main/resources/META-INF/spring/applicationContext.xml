@@ -30,19 +30,9 @@
         <context:exclude-filter expression="org.springframework.stereotype.Controller"
 			type="annotation" />
     </context:component-scan>
-
-	<!-- Turn on annotation support for tasks -->
-    <task:annotation-driven />
     
     <tx:annotation-driven/>
-	<!-- 
-    <bean id="taskExecutor"
-		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
-        <property name="corePoolSize" value="5" />
-        <property name="maxPoolSize" value="10" />
-        <property name="queueCapacity" value="25" />
-    </bean>
- 	-->
+	
  	
     <!-- Directory to scan for repository classes -->
     <jpa:repositories
