@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 import org.apache.tapestry5.beaneditor.Validate;
@@ -19,7 +20,7 @@ public class Item extends PersistentObject {
 
 	private String description;
 
-	@OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "item", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Comment> comments = new ArrayList<Comment>();
 
 	public String getTitle() {

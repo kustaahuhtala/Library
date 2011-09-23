@@ -28,7 +28,7 @@ public class CommentIndex {
 
 	public Index onSuccessFromCommentItem() {
 
-		Item item = repository.findOne(itemId);
+		Item item = repository.findItemWithCommentsById(itemId);
 		item.addComment(comment);
 
 		repository.save(item);

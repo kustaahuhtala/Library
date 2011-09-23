@@ -31,7 +31,7 @@ public class Index {
 	private Zone itemZone;
 
 	public Iterable<Item> getItems() {
-		return itemRepository.findAll();
+		return itemRepository.listItemsWithComments();
 	}
 
 	@OnEvent("edit")

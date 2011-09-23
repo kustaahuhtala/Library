@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import com.houston.library.model.Comment;
 import com.houston.library.model.Item;
 
-@ContextConfiguration(locations = { "/META-INF/spring/applicationContext.xml" })
+@ContextConfiguration(locations = { "classpath:META-INF/spring/applicationContext-test.xml" })
 public class ItemPersistenceTest extends AbstractTransactionalTestNGSpringContextTests {
 
 	@Autowired
