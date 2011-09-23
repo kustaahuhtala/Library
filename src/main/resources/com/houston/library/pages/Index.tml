@@ -1,7 +1,7 @@
 <html t:type="layout" title="Library App" t:sidebarTitle="Create Item"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
 	<t:zone t:id="itemZone">
-		<t:grid source="items" exclude="id" add="edit,remove,borrow"
+		<t:grid source="items" exclude="id" add="edit,remove,borrow,comment,numberOfComments"
 			row="item">
 			<p:borrowed>
 				${item.borrowed}
@@ -22,6 +22,12 @@
 					</p:else>
 				</t:if>
 			</p:borrowCell>
+			<p:commentCell>
+				<t:pageLink page="comment/CommentIndex" context="item.id">Comment</t:pageLink>
+			</p:commentCell>
+			<p:numberOfCommentsCell>
+				 ${item.comments.size()} 
+			</p:numberOfCommentsCell>
 
 		</t:grid>
 	</t:zone>

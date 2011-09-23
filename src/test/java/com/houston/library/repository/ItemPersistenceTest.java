@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.annotations.Test;
 
+import com.houston.library.model.Comment;
 import com.houston.library.model.Item;
 
 @ContextConfiguration(locations = { "/META-INF/spring/applicationContext.xml" })
@@ -26,6 +27,26 @@ public class ItemPersistenceTest extends AbstractTransactionalTestNGSpringContex
 		Item retrievedItem = repository.findOne(savedItem.getId());
 
 		assertThat(retrievedItem.getTitle(), is("Title"));
+
+	}
+
+	@Test
+	public void shouldPersistItemWithComments() {
+		Item item = new Item();
+		item.setTitle("Title");
+		Item savedItem = repository.save(item);
+
+		// create comment
+		Comment comment = new Comment();
+		comment.setText("This is my comment");
+		savedItem.addComment(comment);
+
+		savedItem = repository.save(savedItem);
+
+		// fetch once again
+
+		Item itemWithComment = repository.findOne(savedItem.getId());
+		assertThat(itemWithComment.getComments().size(), is(1));
 
 	}
 

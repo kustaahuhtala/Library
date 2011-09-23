@@ -1,20 +1,16 @@
 package com.houston.library.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.apache.tapestry5.beaneditor.NonVisual;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 import org.apache.tapestry5.beaneditor.Validate;
 
 @Entity
-public class Item {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@NonVisual
-	private Long id;
+public class Item extends PersistentObject {
 
 	@Validate("required")
 	private String title;
@@ -22,6 +18,9 @@ public class Item {
 	private boolean borrowed;
 
 	private String description;
+
+	@OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+	private List<Comment> comments = new ArrayList<Comment>();
 
 	public String getTitle() {
 		return title;
@@ -39,20 +38,26 @@ public class Item {
 		this.description = description;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public boolean isBorrowed() {
 		return borrowed;
 	}
 
 	public void setBorrowed(boolean borrowed) {
 		this.borrowed = borrowed;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public void addComment(Comment comment) {
+		comment.setItem(this);
+		this.comments.add(comment);
+
 	}
 
 }
