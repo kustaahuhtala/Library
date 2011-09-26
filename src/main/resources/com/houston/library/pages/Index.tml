@@ -1,7 +1,7 @@
 <html t:type="layout" title="Library App" t:sidebarTitle="Create Item"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
 	<t:zone t:id="itemZone">
-		<t:grid source="items" exclude="id" add="edit,remove,borrow,comment,numberOfComments"
+		<t:grid t:id="items" id="items" source="items" exclude="id" add="edit,remove,borrow,comment,numberOfComments"
 			row="item">
 			<p:borrowed>
 				${item.borrowed}

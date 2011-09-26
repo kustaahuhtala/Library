@@ -23,6 +23,17 @@ public class Item extends PersistentObject {
 	@OneToMany(mappedBy = "item", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Comment> comments = new ArrayList<Comment>();
 
+	public Item() {
+	}
+
+	public Item(String title, boolean borrowed, String description, List<Comment> comments) {
+		super();
+		this.title = title;
+		this.borrowed = borrowed;
+		this.description = description;
+		this.comments = comments;
+	}
+
 	public String getTitle() {
 		return title;
 	}
