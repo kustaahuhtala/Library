@@ -37,5 +37,5 @@
 			</t:pagelink>
 		</p>
 	</p:sidebar>
-
+	<div id="test">Test content</div>
 </html>

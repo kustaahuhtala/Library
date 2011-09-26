@@ -131,6 +131,29 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Testify framework -->
+		<dependency>
+			<groupId>com.formos.tapestry</groupId>
+			<artifactId>tapestry-testify</artifactId>
+			<version>1.0.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- needs extra dependencies: objenesis & hamcrest -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.9.0-rc1</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Objenesis -->
+		<dependency>
+			<groupId>org.objenesis</groupId>
+			<artifactId>objenesis</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 
 
 	</dependencies>
@@ -188,6 +211,13 @@
 			<id>apache-snapshots</id>
 			<url>http://repository.apache.org/snapshots/</url>
 		</repository>
+
+		<!-- Testify framework -->
+		<repository>
+			<id>tapestry</id>
+			<url>http://tapestry.formos.com/maven-repository</url>
+		</repository>
+
 	</repositories>
 
 	<pluginRepositories>
